@@ -1,5 +1,5 @@
 require.config({
-	baseUrl: '/assets/',
+	baseUrl: 'assets/',
 
 	paths: {
 		'jquery': 'vendor/jquery/dist/jquery.min',
