@@ -14,7 +14,7 @@ require.config({
 require(['jquery', 'maps', 'lodash', 'icon_generator', 'map_style'], function ($, maps, _, icon_generator, map_style) {
 
 	maps.done(function () {
-		$.get('/get_points', function (res) {
+		$.get('/_prebuilt/points.json', function (res) {
 
 			var map = new google.maps.Map($('#map')[0], {
 				zoom: 12,
