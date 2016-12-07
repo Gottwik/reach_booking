@@ -1,3 +1,6 @@
+// * ———————————————————————————————————————————————————————— * //
+// * 	/fetch_next_apicall endpoint
+// * ———————————————————————————————————————————————————————— * //
 var fetch_next_apicall = function () {}
 
 // local dependencies

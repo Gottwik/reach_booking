@@ -9,7 +9,7 @@ global.db = low(path.join(CMD_FOLDER, 'app', 'db', 'db.json'))
 global.default_destination = {lat: 52.36641789999999, lng: 4.897536700000046}
 
 local_app.prototype.init = function (app) {
-	glob.sync( path.join(CMD_FOLDER, 'app', 'endpoints', '**', '*.js') ).forEach(function(file) {
+	glob.sync(path.join(CMD_FOLDER, 'app', 'endpoints', '**', '*.js')).forEach(function (file) {
 		require(path.resolve(file)).init(app)
 	})
 }

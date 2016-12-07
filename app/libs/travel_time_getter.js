@@ -1,3 +1,7 @@
+// * ———————————————————————————————————————————————————————— * //
+// * 	travel time getter
+// *	handles fetching travel times from google
+// * ———————————————————————————————————————————————————————— * //
 var travel_time_getter = function () {}
 
 // vendor dependencies
@@ -7,7 +11,11 @@ var request = require('request')
 
 const api_chunk_limit = 25
 
-
+// * ———————————————————————————————————————————————————————— * //
+// * 	get_apicalls
+// *	generates api urls that are meant to be requested later
+// *	stores them in low json
+// * ———————————————————————————————————————————————————————— * //
 travel_time_getter.prototype.get_apicalls = function () {
 	var self = this
 
@@ -25,6 +33,11 @@ travel_time_getter.prototype.get_apicalls = function () {
 	return apicalls
 }
 
+// * ———————————————————————————————————————————————————————— * //
+// * 	fetch_next_apicall
+// *	gets one api call and store the result with the point
+// *	stores them in low json
+// * ———————————————————————————————————————————————————————— * //
 travel_time_getter.prototype.fetch_next_apicall = function () {
 	return new Promise(function (resolve, reject) {
 
@@ -51,7 +64,7 @@ travel_time_getter.prototype.fetch_next_apicall = function () {
 				var point_id = apicall.ids[i]
 				var point = points[point_id]
 
-				point['address'] = travel_times.origin_addresses[i]
+				// point['address'] = travel_times.origin_addresses[i] // bloated the json
 				point['travel_time'] = travel_times.rows[i].elements[0]
 			}
 
@@ -63,8 +76,13 @@ travel_time_getter.prototype.fetch_next_apicall = function () {
 	})
 }
 
+// * ———————————————————————————————————————————————————————— * //
+// * 	get_points_without_traveltime
+// *	filters out points with travel time
+// *	@param {object} points
+// *	@return {object} points
+// * ———————————————————————————————————————————————————————— * //
 travel_time_getter.prototype.get_points_without_traveltime = function (points) {
-
 
 	return _.chain(points)
 		.toPairs()
@@ -78,6 +96,12 @@ travel_time_getter.prototype.get_points_without_traveltime = function (points) {
 		.value()
 }
 
+// * ———————————————————————————————————————————————————————— * //
+// * 	get_request_url
+// *	builds the google api url based on starting points
+// *	@param {object} origins
+// *	@return {object} point ids and api call url
+// * ———————————————————————————————————————————————————————— * //
 function get_request_url (origins) {
 	var origin_string = _.chain(origins).map(stringify_coordinate).join('|')
 	var destination_string = stringify_coordinate(default_destination)
@@ -87,6 +111,11 @@ function get_request_url (origins) {
 	}
 }
 
+// * ———————————————————————————————————————————————————————— * //
+// * 	stringify_coordinate
+// *	@param {object} point
+// *	@return {string} lattitude and longitude in google accepted format
+// * ———————————————————————————————————————————————————————— * //
 function stringify_coordinate (point) {
 	return point.lat + ',' + point.lng
 }

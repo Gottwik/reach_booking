@@ -1,3 +1,6 @@
+// * ———————————————————————————————————————————————————————— * //
+// * 	/generate_apicalls endpoint
+// * ———————————————————————————————————————————————————————— * //
 var generate_apicalls = function () {}
 
 // local dependencies

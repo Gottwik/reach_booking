@@ -1,5 +1,10 @@
+// * ———————————————————————————————————————————————————————— * //
+// * 	static handler
+// *	prebuilts points.json file to enable static hosting on github
+// * ———————————————————————————————————————————————————————— * //
 var static_handler = function () {}
 
+// vendor dependencies
 var fs = require('fs')
 var path = require('path')
 var Promise = require('bluebird')

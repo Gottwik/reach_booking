@@ -1,6 +1,7 @@
+// * ———————————————————————————————————————————————————————— * //
+// * 	/get_points endpoint
+// * ———————————————————————————————————————————————————————— * //
 var get_points = function () {}
-
-// local dependencies
 
 get_points.prototype.init = function (app) {
 	app.get('/get_points', function (req, res) {
