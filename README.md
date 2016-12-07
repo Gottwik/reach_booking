@@ -1,0 +1,21 @@
+# reach_booking
+
+Travel time to Rembrandtplein, Amsterdam visualized on a map.
+
+![Imgur](http://i.imgur.com/TkCvqru.png)
+
+![](http://i.imgur.com/eVj7qe7.png)
+
+# How to rebuild to another destination
+Change the default destination in `/app/app.js`: to your coordinates
+
+```
+global.default_destination = {lat: 52.36641789999999, lng: 4.897536700000046}
+```
+
+start the (www.endurojs.com)[enduro] and access `localhost:5000/generate_points` then `localhost:5000/generate_apicalls`. Now you have the points and api urls prebuilt and you can start calling `localhost:5000/fetch_next_apicall` to get travel times.
+
+## Future ideas
+* Switch travel mode between public transport, bicycle and driving
+* Have a nice gui to the getting of the travel times.
+* Generate overlay image to improve performance and make it nicer
