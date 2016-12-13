@@ -1,0 +1,68 @@
+{
+  "points": {
+    "0": {
+      "lat": 52.36641789999999,
+      "lng": 4.897536700000046,
+      "address": "Bakkersstraat 12, 1017 CW Amsterdam, Netherlands",
+      "travel_time": {
+        "distance": {
+          "text": "1 m",
+          "value": 0
+        },
+        "duration": {
+          "text": "1 min",
+          "value": 1
+        },
+        "status": "OK"
+      }
+    },
+    "1": {
+      "lat": 52.27244911803474,
+      "lng": 4.9054205391846715,
+      "address": "Oude Waal 40B, 1011 CE Amsterdam, Netherlands",
+      "travel_time": {
+        "distance": {
+          "text": "1.4 km",
+          "value": 1395
+        },
+        "duration": {
+          "text": "11 mins",
+          "value": 740
+        },
+        "status": "OK"
+      }
+    },
+    "2": {
+      "lat": 52.36505989968444,
+      "lng": 4.711387715452773,
+      "address": "Plantage Muidergracht 79A, 1018 TN Amsterdam, Netherlands",
+      "travel_time": {
+        "distance": {
+          "text": "1.3 km",
+          "value": 5049
+        },
+        "duration": {
+          "text": "8 mins",
+          "value": 3001
+        },
+        "status": "OK"
+      }
+    },
+    "3": {
+      "lat": 52.35758464025768,
+      "lng": 4.605985321233187,
+      "address": "Weesperzijde 1010-1012, 1091 ED Amsterdam, Netherlands",
+      "travel_time": {
+        "distance": {
+          "text": "1.7 km",
+          "value": 9740
+        },
+        "duration": {
+          "text": "12 mins",
+          "value": 7400
+        },
+        "status": "OK"
+      }
+    }
+  }
+}

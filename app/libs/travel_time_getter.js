@@ -39,6 +39,8 @@ travel_time_getter.prototype.get_apicalls = function () {
 // *	stores them in low json
 // * ———————————————————————————————————————————————————————— * //
 travel_time_getter.prototype.fetch_next_apicall = function () {
+	var self = this
+
 	return new Promise(function (resolve, reject) {
 
 		var apicalls = db.get('apicalls').value()
@@ -57,7 +59,7 @@ travel_time_getter.prototype.fetch_next_apicall = function () {
 			var travel_times = JSON.parse(body)
 
 			if (travel_times.status !== 'OK') {
-				return reject('error with status #{travel_times.status}')
+				return reject('error with status: ' + travel_times.status)
 			}
 
 			for (i in apicall.ids) {
@@ -70,7 +72,10 @@ travel_time_getter.prototype.fetch_next_apicall = function () {
 
 			db.set('points', points).value()
 			db.set('apicalls', apicalls.slice(1)).value()
-			resolve(apicall)
+			resolve({
+				total_points: points.length,
+				fetched_points: self.get_points_without_traveltime(points).length
+			})
 		})
 
 	})

@@ -43,7 +43,7 @@ define(
 			var just_after = self.gradient_definition.length - 1
 
 			// calculates just_below by going up while provided value is less then gradient point's value
-			while (just_below < self.gradient_definition.length && self.gradient_definition[just_below].key > value) {
+			while (just_below < self.gradient_definition.length && self.gradient_definition[just_below].key < value) {
 				just_below++
 			}
 			just_below = Math.max(0, just_below - 1)
@@ -79,6 +79,9 @@ define(
 			color_1 = color_1.replace('#', '')
 			color_2 = color_2.replace('#', '')
 
+			// support for hex with alpha
+			var length = Math.min(color_1.length, color_2.length) > 6 ? 7 : 5
+
 			function d2h (d) { return d.toString(16) }  // convert a decimal value to hex
 			function h2d (h) { return parseInt(h, 16) } // convert a hex value to decimal
 
@@ -87,7 +90,7 @@ define(
 			// start the output color with #
 			var color = '#'
 
-			for (var i = 0; i <= 5; i += 2) { // loop through each of the 3 hex pairs—red, green, and blue
+			for (var i = 0; i <= length; i += 2) { // loop through each of the 3 hex pairs—red, green, and blue
 				var v1 = h2d(color_1.substr(i, 2)) // extract the current pairs
 				var	v2 = h2d(color_2.substr(i, 2))
 

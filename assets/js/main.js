@@ -2,12 +2,21 @@ require.config({
 	baseUrl: '/assets/',
 
 	paths: {
+		// vendor
 		'jquery': 'vendor/jquery/dist/jquery.min',
-		'maps': 'js/utilities/google_maps_loader',
 		'lodash': 'vendor/lodash/dist/lodash',
+
+		// utilities
+		'maps': 'js/utilities/google_maps_loader',
 		'icon_generator': 'js/utilities/icon_generator',
 		'gradientjs': 'js/utilities/gradientjs',
 		'map_style': 'js/utilities/map_style',
+		'overlay_handler': 'js/utilities/overlay_handler',
+
+		// image generation
+		'intensity_map_generator': 'js/image_generation/intensity_map_generator',
+		'image_convertor': 'js/image_generation/image_convertor',
+		'image_interpolator': 'js/image_generation/image_interpolator',
 	},
 })
 
@@ -16,18 +25,25 @@ require(['jquery', 'maps', 'lodash', 'icon_generator', 'map_style'], function ($
 	// load google maps api
 	maps.done(function () {
 
-		// load points
-		$.get('/_prebuilt/points.json', function (points) {
+		// render map with specified style
+		var map = new google.maps.Map($('#map')[0], {
+			zoom: 12,
+			center: { lat: 52.36641789999999, lng: 4.897536700000046}, // first point
+			styles: map_style
+		})
 
-			// render map with specified style
-			var map = new google.maps.Map($('#map')[0], {
-				zoom: 12,
-				center: points[0], // first point
-				styles: map_style
+		if ($('.overlay').length) {
+			require(['overlay_handler'], function (overlay_handler) {
+				overlay_handler.overlay(map)
+			})
+		} else {
+
+			// load points
+			$.get('/get_points', function (points) {
+				draw_points(map, points)
 			})
 
-			draw_points(map, points)
-		})
+		}
 	})
 
 	// all_points will store all the points for later reference
