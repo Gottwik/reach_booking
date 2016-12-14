@@ -1,6 +1,10 @@
+$padding: 20px;
+
 body {
 	height: 100%;
 	margin: 0;
+	font-family: 'Lato', sans-serif;
+	font-size: 13px;
 }
 
 .map {
@@ -12,4 +16,53 @@ body {
 	position: absolute;
 	top: 0;
 	right: 0;
+}
+
+.explanation {
+	position: absolute;
+	left: $padding;
+	top: $padding;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 1px 1px 5px rgba(#000, .4);
+	padding: $padding;
+
+	svg {
+		position: relative;
+		top: 3px;
+	}
+
+	.guide {
+		padding-left: 20px;
+		position: relative;
+		margin-left: 2px;
+
+
+		li {
+			list-style-type: none;
+			padding: 5px 0;
+			position: relative;
+
+			&:first-child {
+				padding-top: 0;
+				top: -1px;
+			}
+
+			&:last-child {
+				padding-bottom: 0;
+				top: 1px;
+			}
+		}
+
+		&:before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 15px;
+			height: 100%;
+			border-radius: 5px;
+			background: linear-gradient(to bottom, rgba(#2ECC71, .8) 0%, rgba(#3498DB, .8) 50%, rgba(#bdc3c7, .3) 100%);;
+		}
+	}
 }

@@ -10,10 +10,10 @@ define(
 		var image_map_generator = function () {}
 
 		const image_bounds = {
-			north: 53.246296,
-			south: 52.0063115,
-			east: 5.915759,
-			west: 4.096155
+			north: 52.746296,
+			south: 51.9063115,
+			east: 5.515759,
+			west: 4.296155
 		}
 
 		var image_bound_width = image_bounds.east - image_bounds.west

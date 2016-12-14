@@ -29,20 +29,28 @@ require(['jquery', 'maps', 'lodash', 'icon_generator', 'map_style'], function ($
 		var map = new google.maps.Map($('#map')[0], {
 			zoom: 12,
 			center: { lat: 52.36641789999999, lng: 4.897536700000046}, // first point
-			styles: map_style
+			styles: map_style,
+			mapTypeControl: false,
 		})
 
 		if ($('.overlay').length) {
 			require(['overlay_handler'], function (overlay_handler) {
 				overlay_handler.overlay(map)
 			})
-		} else {
+		}
+
+		if ($('.markers').length) {
 
 			// load points
 			$.get('/get_points', function (points) {
 				draw_points(map, points)
 			})
+		}
 
+		if ($('.precomputed').length) {
+			require(['overlay_handler'], function (overlay_handler) {
+				overlay_handler.overlay_precomputed(map)
+			})
 		}
 	})
 

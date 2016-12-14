@@ -19,7 +19,7 @@ define(
 			points = _.filter(points, function (point) { return point && 'x' in point })
 
 			image_width = image_data[0].length
-			close_threshold = image_width / 100
+			close_threshold = image_width / 50
 
 			// store the center
 			var center = points[0]
@@ -98,7 +98,7 @@ define(
 							total_distance += distance
 						}
 
-						if (total_distance > image_width / 25) {
+						if (total_distance > image_width / 10) {
 							continue
 						}
 

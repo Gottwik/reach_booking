@@ -20,11 +20,11 @@ define(
 			},
 			{
 				key: 4500,
-				value: '#e74c3c22' // 1:15 is not really acceptable
+				value: '#bdc3c722' // 2:00 not really acceptable
 			},
 			{
 				key: 7200,
-				value: '#bdc3c700' // 1:30 not really acceptable
+				value: '#e74c3c00' // 1:15 is not really acceptable
 			},
 		])
 

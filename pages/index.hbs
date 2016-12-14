@@ -3,9 +3,19 @@
 	<head>
 		<title>Reach b.com</title>
 		<link rel="stylesheet" href="/assets/css/main.css">
+		<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 	</head>
 	<body>
-		<div id="map" class="map"></div>
+		<div id="map" class="map precomputed"></div>
+		<div class="explanation">
+			Travel times to {{>bookinglogo}}<br>by public transportation
+			<ul class="guide">
+
+				<li>less than 30 minutes</li>
+				<li>less than 1 hour</li>
+				<li>more than 1 hour</li>
+			</ul>
+		</div>
 	</body>
 
 	<script data-main="/assets/js/main.js" src="/assets/vendor/requirejs/require.js"></script>
