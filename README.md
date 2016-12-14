@@ -14,6 +14,8 @@ Points are generated in a spiral with increasing radius but with equivalent dist
 ## Getting distances from center
 This project uses [Google distance matrix api](https://developers.google.com/maps/documentation/distance-matrix/). This allows for 100 requests, 25 points each per day for free. The map in the demo was generated from 25,000 points, so I had to run the `/fetch` endpoint on 10 days ;-). 1000 points are ok for simple uses.
 
+Check out the distance visualization here: https://gottwik.github.io/reach_booking/markers
+
 ![Imgur](http://i.imgur.com/TkCvqru.png)
 
 ![Imgur](http://i.imgur.com/eVj7qe7.png)
