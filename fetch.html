@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>generate</title>
+		<link rel="stylesheet" href="/assets/css/main.css">
+		<script type="text/javascript" src="/assets/vendor/jquery/dist/jquery.js"></script>
+		<script type="text/javascript">
+			$( document ).ready(function() {
+				$('.start_button').click(start_fetching)
+			})
+
+			var timer
+			function start_fetching () {
+				console.log('started fetching')
+				timer = setInterval(fetch, 1500)
+			}
+
+			function end_fetching () {
+				if (timer) {
+					clearInterval(timer)
+				}
+			}
+
+			function fetch () {
+				console.log('started fetching')
+				$.get('/fetch_next_apicall', function (data) {
+					console.log(data)
+					if (data.success) {
+						$('body').append('<pre>' + data + '</pre>')
+						$('.fetched_points').html(data.message.fetched_points)
+						$('.total_points').html(data.message.total_points)
+					} else {
+						clearInterval(timer)
+						$('body').append('error')
+					}
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<input class="start_button" type="button" value="start">
+		<input class="stop_button" type="button" value="stop">
+		<div><span class="fetched_points"></span>/<span class="total_points"></span></div>
+	</body>
+
+</html>

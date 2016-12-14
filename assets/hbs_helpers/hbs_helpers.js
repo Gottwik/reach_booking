@@ -1,4 +1,4 @@
-define([],function() { return function(__templating_engine) { 
+define([],function() { return function(__templating_engine) {
 
 // * ———————————————————————————————————————————————————————— * //
 // *    Add helper
@@ -117,7 +117,7 @@ __templating_engine.registerHelper('divisible', function (number_to_dividee, div
 // *	Find all files in path and provide them as each
 // *	Usage:
 // *
-// *	{{#files '/assets/images/'}}
+// *	{{#files 'assets/images/'}}
 // *		<p>Image: {{this}}</p>
 // *	{{/files}}
 // * ———————————————————————————————————————————————————————— * //
