@@ -42,7 +42,7 @@ require(['jquery', 'maps', 'lodash', 'icon_generator', 'map_style'], function ($
 		if ($('.markers').length) {
 
 			// load points
-			$.get('/get_points', function (points) {
+			$.get('prebuilt/points.json', function (points) {
 				draw_points(map, points)
 			})
 		}
